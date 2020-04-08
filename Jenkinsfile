@@ -1,13 +1,15 @@
 pipeline {
     agent any
-    environment {
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        AWS_DEFAULT_REGION    = 'us-west-2'
-    }
+    
+    // environment {
+    //     AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+    //     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    //     AWS_DEFAULT_REGION    = 'us-west-2'
+    // }
     stages {
         stage('Requirements') {
             steps {
+                git 'https://github.com/dgraysonMaxar/hot-sauce.git'
                 sh('''#!/bin/bash
                         python3 -m virtualenv local
                         source ./local/bin/activate
