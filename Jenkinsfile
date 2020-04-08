@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Requirements') {
             steps {
-                git 'https://github.com/dgraysonMaxar/hot-sauce.git'
+                git credentialsId: 'be97b400-18bc-43d6-83eb-3fbb217e914e', url: 'https://github.com/dgraysonMaxar/hot-sauce.git'
                 sh('''#!/bin/bash
                         python3 -m virtualenv local
                         source ./local/bin/activate
